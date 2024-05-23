@@ -30,6 +30,9 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
-    - name: Deploy to Test Server
-      run: |
-        echo "Add deployment commands here"
+    - name: Deploy to Heroku
+      uses: anglophiles/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        heroku_app_name: "djangoprojec"  # Змініть на назву вашого застосунку на Heroku
+        heroku_email: "gordiy.krizanovskiy@knu.ua"  # Ваш email від Heroku
